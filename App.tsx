@@ -1,12 +1,19 @@
-import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
 import "./global.css"
-import SkipSection01 from "./features/screens/SkipSection01";
+import Onboarding from "./features/screens/Onboarding";
+import Home from "./features/screens/Home";
+import { useState } from "react";
 
 export default function App() {
-  return (
-    <View className='flex-1 bg-orange-600 items-center justify-center'>
-    <SkipSection01 />
-    </View>
-  );
+  const [showOnboarding, setShowOnboarding] = useState(true);
+
+  if (showOnboarding) {
+    return (
+      <Onboarding
+        onDone={() => setShowOnboarding(false)}
+        onSkip={() => setShowOnboarding(false)}
+      />
+    );
+  }
+
+  return <Home />;
 }

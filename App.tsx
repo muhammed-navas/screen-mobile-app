@@ -1,6 +1,7 @@
 import "./global.css"
+import { NavigationContainer } from "@react-navigation/native";
 import Onboarding from "./features/screens/Onboarding";
-import Home from "./features/screens/Home";
+import MainNavigator from "./features/navigation/MainNavigator";
 import { useState } from "react";
 
 export default function App() {
@@ -15,5 +16,9 @@ export default function App() {
     );
   }
 
-  return <Home />;
+  return (
+    <NavigationContainer>
+      <MainNavigator />
+    </NavigationContainer>
+  );
 }
